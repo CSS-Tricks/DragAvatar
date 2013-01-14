@@ -19,7 +19,11 @@ jQuery.event.props.push('dataTransfer');
     },
 
     bindUIActions: function() {
+
+      var timer;
+
       s.bod.on("dragover", function(event) {
+        clearTimeout(timer);
         if (event.currentTarget == s.bod[0]) {
           Avatar.showDroppableArea();
         }
@@ -30,12 +34,14 @@ jQuery.event.props.push('dataTransfer');
 
       s.bod.on('dragleave', function(event) {
         if (event.currentTarget == s.bod[0]) {
-          Avatar.hideDroppableArea();
+          // Flicker protection
+          timer = setTimeout(function() {
+            Avatar.hideDroppableArea();
+          }, 200);
         }
       });
 
       s.bod.on('drop', function(event) {
-
         // Or else the browser will open the file
         event.preventDefault();
 
