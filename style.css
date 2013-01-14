@@ -7,20 +7,8 @@ html, body {
   height: 100%;
 }
 
-body.droppable:after {
-  content: "Drop File Anywhere";
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  padding-top: 150px;
-  font-size: 60px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  background: rgba(252, 135, 20, 0.9);
-  border: 5px dashed orange;
+body.droppable .profile-avatar-wrap {
+  border: 5px dashed lightblue;
   z-index: 9999;
 }
 
@@ -46,6 +34,8 @@ h3 {
   float: left;
   margin: 0 20px 5px 0;
   position: relative;
+  pointer-events: none;
+  border: 5px solid transparent;
 }
 .profile-avatar-wrap:after {
   /* Drag Prevention */
@@ -57,7 +47,8 @@ h3 {
   height: 100%;
 }
 .profile-avatar-wrap img {
-  max-width: 100%;
+  width: 100%;
+  display: block;
 }
 .location {
   text-transform: uppercase;
