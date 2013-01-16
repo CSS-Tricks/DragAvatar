@@ -68,7 +68,7 @@ jQuery.event.props.push('dataTransfer');
       // Multiple files can be dropped. Lets only deal with the "first" one.
       var file = files[0];
 
-      if (file.type.match('image.*')) {
+      if (typeof file !== 'undefined' && file.type.match('image.*')) {
 
         Avatar.resizeImage(file, 256, function(data) {
           Avatar.placeImage(data);
